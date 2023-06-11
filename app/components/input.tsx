@@ -16,7 +16,8 @@ export default function Input() {
 
   const [value2, setValue2] = useState(25);
 
-  const handleInputChange = () => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
     if (inputRef.current?.value) {
       setValue(parseInt(inputRef.current.value));
     }
@@ -28,6 +29,14 @@ export default function Input() {
 
   return (
     <div className="flex flex-col items-center gap-20">
+      <a
+        className="mt-10 underline"
+        href="https://github.com/winstonfeng92/NTC"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub Repository: https://github.com/winstonfeng92/NTC
+      </a>
       <div className="question-container">
         <h1 className="pb-10 text-2xl">
           Question Part 1: Input with useRef in background
@@ -42,7 +51,6 @@ export default function Input() {
           autoComplete="off"
         >
           <p>Current state 1: {value}</p>
-
           <TextField
             id="outlined-basic"
             label="Number Input"
@@ -50,7 +58,7 @@ export default function Input() {
             defaultValue={value}
             inputRef={inputRef}
             type="number"
-            onChange={handleInputChange}
+            onInput={handleInputChange}
           />
         </Box>
       </div>
@@ -58,7 +66,7 @@ export default function Input() {
       <Box width={300}>
         <p className="mb-10">Current state 2: {value2}</p>
         <Slider
-          defaultValue={value2}
+          value={value2}
           aria-label="Default"
           valueLabelDisplay="auto"
           onChange={handleSliderChange}
