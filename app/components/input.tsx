@@ -44,6 +44,7 @@ export default function Input() {
         <Box
           className="flex flex-col items-center"
           component="form"
+          onSubmit={(e) => e.preventDefault()}
           sx={{
             "& > :not(style)": { m: 1, width: "25ch" },
           }}
