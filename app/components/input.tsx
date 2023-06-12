@@ -28,7 +28,7 @@ export default function Input() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-20">
+    <div className="flex flex-col items-center gap-20 px-4 sm:px-8 md:px-16 lg:px-20">
       <a
         className="mt-10 underline"
         href="https://github.com/winstonfeng92/NTC"
@@ -77,7 +77,15 @@ export default function Input() {
         Question Part 3: Convert javascript querySelector/eventListener to a
         TypeScript Component
       </h1>
-      <SyntaxHighlighter language="typescript" style={docco}>
+      <SyntaxHighlighter
+        lineProps={{
+          style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
+        }}
+        wrapLines={true}
+        language="typescript"
+        style={docco}
+        className="text-sm md:text-base lg:text-lg"
+      >
         {codeSnippet}
       </SyntaxHighlighter>
 
@@ -85,7 +93,15 @@ export default function Input() {
         Question Part 4: Create a data class in Kotlin that is serializable with
         Kotlinx serialization and has an enum parameter.
       </h1>
-      <SyntaxHighlighter language="kotlin" style={docco}>
+      <SyntaxHighlighter
+        lineProps={{
+          style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
+        }}
+        wrapLines={true}
+        language="kotlin"
+        style={docco}
+        className="text-sm md:text-base lg:text-lg"
+      >
         {codeSnippet2}
       </SyntaxHighlighter>
     </div>
